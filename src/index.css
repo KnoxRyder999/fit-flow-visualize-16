@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,31 @@
 
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.7);
+  }
+}
+
+@keyframes pulse-light {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 165, 0, 0.7);
+  }
+}
+
+.animate-pulse-light {
+  animation: pulse-light 3s infinite;
 }
