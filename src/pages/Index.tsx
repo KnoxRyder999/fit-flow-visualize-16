@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,7 +16,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ChevronDown, Play, Image, Discord, Mail, Send } from "lucide-react";
+import { ChevronDown, Play, Image, MessageSquare, Mail, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Index = () => {
@@ -300,7 +299,7 @@ const Index = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <a href="https://discord.gg/your-link" target="_blank" className="p-4 bg-backgroundDark/50 rounded-lg transform transition-all duration-300 hover:scale-105 hover:bg-backgroundDark flex flex-col items-center gap-2">
-                <Discord size={32} className="text-accent2" />
+                <MessageSquare size={32} className="text-accent2" />
                 <h3 className="font-bold mb-2">Discord</h3>
                 <h6 className="text-textSecondary">aim9347</h6>
               </a>
@@ -344,7 +343,7 @@ const Index = () => {
           <p className="text-textSecondary mb-4">© 2025 Fortnite Accounts. All rights reserved.</p>
           <div className="flex justify-center space-x-6">
             <a href="https://discord.gg/your-link" target="_blank" rel="noopener noreferrer">
-              <Discord className="h-6 w-6 text-accent hover:text-accent2 transition-colors" />
+              <MessageSquare className="h-6 w-6 text-accent hover:text-accent2 transition-colors" />
             </a>
             <a href="mailto:aimdev1234@gmail.com" target="_blank" rel="noopener noreferrer">
               <Mail className="h-6 w-6 text-accent hover:text-accent2 transition-colors" />
