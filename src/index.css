@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 239 35% 56%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -23,8 +25,11 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 351 100% 64%;
     --accent-foreground: 222.2 47.4% 11.2%;
+
+    --accent2: 51 100% 50%;
+    --accent2-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -53,26 +58,29 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 225 17% 15%;
+    --foreground: 0 0% 93%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 225 17% 15%;
+    --card-foreground: 0 0% 93%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 225 17% 15%;
+    --popover-foreground: 0 0% 93%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 239 35% 56%;
+    --primary-foreground: 0 0% 93%;
 
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 0 0% 93%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 351 100% 64%;
+    --accent-foreground: 0 0% 93%;
+
+    --accent2: 51 100% 50%;
+    --accent2-foreground: 0 0% 0%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -97,12 +105,24 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-fortnite;
     scroll-behavior: smooth;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+
+  h1 {
+    @apply text-4xl font-bold text-textPrimary;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold text-textPrimary;
+  }
+
+  h3 {
+    @apply text-lg font-medium text-textPrimary;
   }
 }
 
@@ -117,6 +137,22 @@
   
   .media-content {
     @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity hover:opacity-100;
+  }
+
+  .fortnite-card {
+    @apply bg-backgroundDark rounded-2xl shadow-md p-5 m-5 transform transition-all duration-300 hover:scale-105 hover:shadow-xl overflow-hidden;
+  }
+
+  .fortnite-badge {
+    @apply bg-accent2 text-backgroundDark text-xs font-semibold py-1 px-2 rounded inline-flex items-center;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-textPrimary hover:bg-accent/90 rounded-lg px-5 py-3 font-semibold transition-all;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-textPrimary rounded-lg px-5 py-3 font-semibold transition-all;
   }
 }
 

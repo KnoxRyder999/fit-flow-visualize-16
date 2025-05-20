@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				fortnite: ['Inter', 'Poppins', 'Rubik', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -45,6 +48,10 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
+				accent2: {
+					DEFAULT: 'hsl(var(--accent2))',
+					foreground: 'hsl(var(--accent2-foreground))'
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -63,18 +70,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				fitness: {
-					primary: '#8B5CF6',
-					secondary: '#7C3AED',
-					accent: '#4F46E5',
-					muted: '#E5DEFF',
-					green: '#10B981',
-					red: '#EF4444',
-					yellow: '#F59E0B',
-					background: '#F9FAFB',
-					foreground: '#1F2937',
-					card: '#FFFFFF',
-				}
+				// Custom Fortnite theme colors
+				backgroundDark: '#1E1E2F',
+				backgroundLight: '#FAFAFA',
+				textPrimary: '#ECECEC',
+				textSecondary: '#AAAAAA'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
