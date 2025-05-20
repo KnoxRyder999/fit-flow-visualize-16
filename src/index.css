@@ -110,6 +110,14 @@
   .shadow-glow {
     box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.7);
   }
+  
+  .media-card {
+    @apply relative overflow-hidden rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,165,0,0.5)];
+  }
+  
+  .media-content {
+    @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity hover:opacity-100;
+  }
 }
 
 @keyframes pulse-light {
@@ -125,4 +133,21 @@
 
 .animate-pulse-light {
   animation: pulse-light 3s infinite;
+}
+
+/* Video overlay effect */
+.video-overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 transition-all duration-300;
+}
+
+.video-overlay:hover {
+  @apply bg-opacity-20;
+}
+
+.video-play-button {
+  @apply text-white opacity-85 transform transition-all duration-300;
+}
+
+.video-play-button:hover {
+  @apply opacity-100 scale-110;
 }

@@ -16,7 +16,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Play, Image } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Index = () => {
@@ -67,7 +67,7 @@ const Index = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink 
                   onClick={() => scrollToSection("home")} 
-                  className={navigationMenuTriggerStyle() + " cursor-pointer text-white hover:text-fitness-yellow"}
+                  className={cn(navigationMenuTriggerStyle(), "cursor-pointer text-white hover:text-fitness-yellow bg-black/70 hover:bg-black")}
                 >
                   Home
                 </NavigationMenuLink>
@@ -75,7 +75,7 @@ const Index = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink 
                   onClick={() => scrollToSection("features")} 
-                  className={navigationMenuTriggerStyle() + " cursor-pointer text-white hover:text-fitness-yellow"}
+                  className={cn(navigationMenuTriggerStyle(), "cursor-pointer text-white hover:text-fitness-yellow bg-black/70 hover:bg-black")}
                 >
                   Features
                 </NavigationMenuLink>
@@ -83,15 +83,23 @@ const Index = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink 
                   onClick={() => scrollToSection("gallery")} 
-                  className={navigationMenuTriggerStyle() + " cursor-pointer text-white hover:text-fitness-yellow"}
+                  className={cn(navigationMenuTriggerStyle(), "cursor-pointer text-white hover:text-fitness-yellow bg-black/70 hover:bg-black")}
                 >
                   Gallery
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink 
+                  onClick={() => scrollToSection("media")} 
+                  className={cn(navigationMenuTriggerStyle(), "cursor-pointer text-white hover:text-fitness-yellow bg-black/70 hover:bg-black")}
+                >
+                  Media
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink 
                   onClick={() => scrollToSection("buy")} 
-                  className={navigationMenuTriggerStyle() + " cursor-pointer text-white hover:text-fitness-yellow"}
+                  className={cn(navigationMenuTriggerStyle(), "cursor-pointer text-white hover:text-fitness-yellow bg-black/70 hover:bg-black")}
                 >
                   Buy Now
                 </NavigationMenuLink>
@@ -99,7 +107,7 @@ const Index = () => {
               <NavigationMenuItem>
                 <NavigationMenuLink 
                   onClick={() => scrollToSection("testimonials")} 
-                  className={navigationMenuTriggerStyle() + " cursor-pointer text-white hover:text-fitness-yellow"}
+                  className={cn(navigationMenuTriggerStyle(), "cursor-pointer text-white hover:text-fitness-yellow bg-black/70 hover:bg-black")}
                 >
                   Testimonials
                 </NavigationMenuLink>
@@ -173,6 +181,9 @@ const Index = () => {
                 key={index} 
                 className="bg-gray-800 border-gray-700 overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(255,165,0,0.5)] hover:bg-gray-700"
               >
+                <div className="h-48 overflow-hidden">
+                  <img src={bundle.image} alt={bundle.title} className="w-full h-full object-cover transition-transform hover:scale-110 duration-500" />
+                </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2 text-fitness-yellow">{bundle.title}</h3>
                   <p className="text-gray-300 mb-4">{bundle.description}</p>
@@ -248,6 +259,56 @@ const Index = () => {
               <CarouselNext className="relative static transform-none translate-y-0 bg-fitness-yellow text-black hover:bg-fitness-red hover:text-white" />
             </div>
           </Carousel>
+        </div>
+      </section>
+      
+      {/* Media Section - New */}
+      <section id="media" className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-16">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-fitness-yellow to-fitness-red">
+              Game Media
+            </span>
+          </h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-fitness-yellow flex items-center gap-2">
+                <Image className="h-6 w-6" /> Image Gallery
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                {mediaImages.map((img, idx) => (
+                  <div key={idx} className="overflow-hidden rounded-lg group">
+                    <img 
+                      src={img} 
+                      alt={`GTA V screenshot ${idx + 1}`}
+                      className="w-full h-48 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-fitness-yellow flex items-center gap-2">
+                <Play className="h-6 w-6" /> Game Trailers
+              </h3>
+              <div className="space-y-4">
+                {gameVideos.map((video, idx) => (
+                  <div key={idx} className="overflow-hidden rounded-lg relative group">
+                    <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/50 group-hover:bg-black/30 transition-all">
+                      <Play className="h-16 w-16 text-white opacity-80 group-hover:opacity-100 transition-all group-hover:scale-110" />
+                    </div>
+                    <img 
+                      src={video.thumbnail} 
+                      alt={`Video thumbnail ${idx + 1}`}
+                      className="w-full h-[180px] object-cover transform transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
@@ -337,12 +398,48 @@ const Index = () => {
 
 // Mock data
 const bundles = [
-  { title: "OG Collection Vol.1", description: "The original set of rare items", items: "29 Skins", price: "0.85" },
-  { title: "Rare Series", description: "Limited edition collectibles", items: "46 Skins", price: "1.50" },
-  { title: "Epic Battle Set", description: "Perfect for intense gameplay", items: "40 Skins", price: "1.25" },
-  { title: "Mini Flex Pack", description: "Show off your exclusive items", items: "2 Skins", price: "0.25" },
-  { title: "Stylish Loadout", description: "Customized for style and performance", items: "34 Skins", price: "0.90" },
-  { title: "Classic Vibes", description: "Nostalgic items from early releases", items: "13 Skins", price: "0.70" },
+  { 
+    title: "OG Collection Vol.1", 
+    description: "The original set of rare items", 
+    items: "29 Skins", 
+    price: "0.85",
+    image: "https://source.unsplash.com/random/800x600/?game,night,city" 
+  },
+  { 
+    title: "Rare Series", 
+    description: "Limited edition collectibles", 
+    items: "46 Skins", 
+    price: "1.50",
+    image: "https://source.unsplash.com/random/800x600/?car,racing,night" 
+  },
+  { 
+    title: "Epic Battle Set", 
+    description: "Perfect for intense gameplay", 
+    items: "40 Skins", 
+    price: "1.25",
+    image: "https://source.unsplash.com/random/800x600/?action,game" 
+  },
+  { 
+    title: "Mini Flex Pack", 
+    description: "Show off your exclusive items", 
+    items: "2 Skins", 
+    price: "0.25",
+    image: "https://source.unsplash.com/random/800x600/?luxury,car" 
+  },
+  { 
+    title: "Stylish Loadout", 
+    description: "Customized for style and performance", 
+    items: "34 Skins", 
+    price: "0.90",
+    image: "https://source.unsplash.com/random/800x600/?urban,street" 
+  },
+  { 
+    title: "Classic Vibes", 
+    description: "Nostalgic items from early releases", 
+    items: "13 Skins", 
+    price: "0.70",
+    image: "https://source.unsplash.com/random/800x600/?retro,vintage,car" 
+  },
 ];
 
 const features = [
@@ -357,6 +454,26 @@ const galleryImages = [
   "https://source.unsplash.com/random/900x600/?videogame",
   "https://source.unsplash.com/random/900x600/?losangeles",
   "https://source.unsplash.com/random/900x600/?city,night",
+];
+
+const mediaImages = [
+  "https://source.unsplash.com/random/600x400/?city,night",
+  "https://source.unsplash.com/random/600x400/?action,crime",
+  "https://source.unsplash.com/random/600x400/?car,racing",
+  "https://source.unsplash.com/random/600x400/?helicopter,city",
+];
+
+const gameVideos = [
+  {
+    title: "GTA V Official Trailer",
+    thumbnail: "https://source.unsplash.com/random/800x450/?city,night",
+    videoUrl: "#video1"
+  },
+  {
+    title: "Los Santos Tour",
+    thumbnail: "https://source.unsplash.com/random/800x450/?beach,sunset",
+    videoUrl: "#video2"
+  }
 ];
 
 const testimonials = [
